@@ -2,7 +2,7 @@
 
 In this assignment, you are required to design structure and hierachy for a backend service. you can choose between two topics:
 
-1. E-commerce platform
+1. `E-commerce platform`
 2. Library Management
 
 You will decide to whether use class/interface/struct for each situation.
