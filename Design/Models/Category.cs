@@ -1,10 +1,11 @@
 using System;
 namespace Design.Models;
 
-public abstract class Category
+public  class Category
 {
-    public int? Id { get; set; }
+    public int? CategoryID { get; set; }
     public string Name { get; set; }
     public string Image{ get; set; }
+    // public List<Product> Products { get; set; }
 
 }
