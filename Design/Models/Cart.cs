@@ -1,7 +1,7 @@
 using System;
 namespace Design.Models;
 
-public class CartModel : UsersModel
+public class Cart
 {
     public string ProductName { get; set; }
     public int Quantity {get; set; }

@@ -1,6 +1,6 @@
 using System;
 namespace Design;
-public enum UserRole
+public enum Role
 {
     Admin,
     LoginUser,
