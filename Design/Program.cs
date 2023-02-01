@@ -9,7 +9,7 @@ var product = Product.Products.FirstOrDefault(product => product.ID == product.I
 WriteLine(product);
 
 WriteLine("############# Product Update ################");
-var productUpdate = Product.Products.Find(product => product.ID == 1);
+var productUpdate = Product.Products.Find(product => product.ID == 2);
 productUpdate.UpdateProduct(3, "Shoe", 35.00f, "New shoe from joppa");
 WriteLine(productUpdate);
 

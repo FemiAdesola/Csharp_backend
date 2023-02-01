@@ -1,21 +1,88 @@
-````shell
+## Top to Down
+
+### User stories
+- Who are the users of the eCommerce? 
+- How many different components/subsystem would it required?
+
+### Necessary
++ Inventory
++ Product
++ Category
++ Order
++ Shipping
++ User
++ Review
+
+## E-commerce:
+### Inventory => namespace/feature
++ Product
++ Category
++ Cart
++ Review
+### Order => namespace/feature
++ OrderItem
+
+### Shipping => namespace/feature
++ Logistic
+
+### User types
++ Customer
++ Staff member
+
+#### what users can do + Customer:
+- User stories
+  + View a product
+  + Add a product to cart
+  + Order the product
+  + Review the product
+
+- Staff member:
+  + View all the products => methods + Update all the products => methods
+  + View all the transactions/orders/shipping etc => methods
+
+
+## Entities/attributes/relationships
+### Product:
++ ID
++ Title
++ Image
++ Category
++ Price
++ IsAvailable
++ Order
+
+### Review
++ ID
++ User
++ Product
++ Rating
++ Message/comment
+
+### Category
++ ID
++ Name
++ Image
+### ProductVariant
++ ProductID
+- Attributes
+  + Key (size,color, brand)
+  + Value (S, M, L, XL, XXL, red/blue/yellow, Samsung/LG/Nokia/Mac/Window)
+
+### Order
++ Date
++ Price
++ TotalPrice
++ OrderItem
 [
-  {
-    "id": 4,
-    "title": "Handmade Fresh Table",
-    "price": 687,
-    "description": "Andy shoes are designed to keeping in...",
-    "category": {
-      "id": 5,
-      "name": "Others",
-      "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
-    },
-    "images": [
-      "https://placeimg.com/640/480/any?r=0.9178516507833767",
-      "https://placeimg.com/640/480/any?r=0.9300320592588625",
-      "https://placeimg.com/640/480/any?r=0.8807778235430017"
-    ]
-  }
-  // ...
+  + ProductID
+  + Quantity
 ]
-´´´
+
+### Methods
++ GetAll...
++ GetSingle...
++ Create...
++ Update...
++ Delete...
+
+![Diagram](/img/Diagram.png)

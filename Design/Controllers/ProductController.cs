@@ -29,5 +29,15 @@ public class ProductController
     public void DeleteProduct(int id)
     {
         _productService.DeleteProduct(id);
+        // if (id == null || id == 0)
+        // {
+        //     return "Not found";
+        // }
+        // var obj = _productService.Find(id);
+        // if (obj == null)
+        // {
+        //     return " Not found";
+        // }
+        // return ((string)obj);
     }
 }
