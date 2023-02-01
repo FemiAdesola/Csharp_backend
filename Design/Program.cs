@@ -4,13 +4,13 @@ using Design.Models;
 using static System.Console;
 
 WriteLine("############# New Product ################");
-Product.CreateProduct(2, "Shoe", 35.00f, "new shoe from joppa");
+Product.CreateProduct(2, "Shoe", 35.00f, "Andy shoes are designed to keeping in...", "https://google.com.png", new Category(1, "Addidas", "https://google.com.png"));
 var product = Product.Products.FirstOrDefault(product => product.ID == product.ID);
 WriteLine(product);
 
 WriteLine("############# Product Update ################");
-var productUpdate = Product.Products.Find(product => product.ID == 4);
-productUpdate.UpdateProduct(3, "Shoe", 35.00f, "new shoe from joppa");
+var productUpdate = Product.Products.Find(product => product.ID == 1);
+productUpdate.UpdateProduct(3, "Shoe", 35.00f, "New shoe from joppa");
 WriteLine(productUpdate);
 
 WriteLine("############# New User ################");
