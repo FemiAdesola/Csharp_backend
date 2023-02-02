@@ -37,9 +37,8 @@ public class Product
         return product;
     }
 
-    public void UpdateProduct(int id, string title, float price, string description)
+    public void UpdateProduct( string title, float price, string description)
     {
-        ID = id;
         Title = title;
         Price = price;
         Description = description;
