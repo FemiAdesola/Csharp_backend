@@ -5,8 +5,8 @@ public class User
 {
     public string? FirstName { get; init; }
     public string? LastName { get; init; }
-    public string Email { get; set; }
-    public string Password { get; set; }
+    public string? Email { get; set; }
+    public string? Password { get; set; }
     public int ID { get; set; }
 
     // public string Image { get; set; }
@@ -22,7 +22,15 @@ public class User
         status = Role.Admin;
 
     }
+
+    public User(int v)
+    {
+        this.v = v;
+    }
+
     public static List<User> Users = new List<User>();
+    private int v;
+
     public static User CreateUser(int id, string firstName, string lastName, string email, string password, Role status)
     {
         var newUser = new User(id, firstName, lastName, email, password, Role.Admin);

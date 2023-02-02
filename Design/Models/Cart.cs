@@ -7,13 +7,15 @@ public class Cart
     public int Quantity {get; set; }
     public double Price { get; set; }
     public float TotalPrice { get; set; }
+    // public Product id { get; set; } 
 
-    public Cart(string productName, int quantity, double price, float totalPrice, Product id)
+    public Cart(string productName, int quantity, double price, float totalPrice)
     {
         ProductName = productName; ;
         Quantity = quantity;
         Price = price;
         TotalPrice = totalPrice;
+      
     }
     public override string ToString() => $"(ProductName: {ProductName}, Quantity: {Quantity}, Totalprice: {TotalPrice})";
 }
