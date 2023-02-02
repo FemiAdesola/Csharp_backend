@@ -13,7 +13,6 @@ public class Product
     public Category Category { get; set; }
     // public bool IsAvailable { get; set; }
 
-   
     public Product(int id, string title, float price, string description, string image, Category category)
     {
         ID = id;
@@ -44,7 +43,5 @@ public class Product
         Description = description;
     }
 
-  
     public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, image: {Image}, Category: {Category}";
-
 }

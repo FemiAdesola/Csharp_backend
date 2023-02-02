@@ -12,7 +12,6 @@ public class Order
     public Cart Cart { get; set; }
     // public string[] OrderItem = { "ProductID", "Quantity" }; // I would like to know how to get the order item with the product ID and quantity.
 
-
     public Order(int orderId, DateTime date, User user , Cart cart)
     {
         OrderId = orderId;
