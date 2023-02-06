@@ -11,9 +11,10 @@ public class Product
     public string Description { get; set; }
     public string Image { get; set; }
     public Category Category { get; set; }
+    public Review Review { get; set; }
     // public bool IsAvailable { get; set; }
 
-    public Product(int id, string title, float price, string description, string image, Category category)
+    public Product(int id, string title, float price, string description, string image, Category category, Review review)
     {
         ID = id;
         Title = title;
@@ -21,17 +22,21 @@ public class Product
         Description = description;
         Image = image;
         Category = category;
+        Review = review;
     }
 
     // public static List<Product> Products = new List<Product>();
     public static List<Product> Products = new List<Product>
     {
-        new Product(1, "Shoe", 30.00f, "Andy shoes are designed to keeping in...", "https://google.com.png", new Category(1, "Addidas", "https://google.com.png"))
+        new Product(1, "Shoe", 30.00f, "Andy shoes are designed to keeping in...", "https://google.com.png", 
+        new Category(1, "Addidas", "https://google.com.png"),
+        new Review(3, "this product is look good", DateTime.Now.ToLocalTime())
+        )
     };
 
-    public static Product CreateProduct(int id, string title, float price, string description, string image, Category category)
+    public static Product CreateProduct(int id, string title, float price, string description, string image, Category category, Review review)
     {
-        var product = new Product(id, title, price, description, image, category);
+        var product = new Product(id, title, price, description, image, category, review);
         Products.Add(product);
         return product;
     }
@@ -43,5 +48,5 @@ public class Product
         Description = description;
     }
 
-    public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, image: {Image}, Category: {Category}";
+    public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, image: {Image}, Category: {Category}, review: {Review}";
 }
