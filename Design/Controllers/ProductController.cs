@@ -27,8 +27,8 @@ public class ProductController
     // GET /api/products
     public async Task<IEnumerable<Product>> GetAllProductAsync()
     {
-        var product = await _productService.GetAllProductAsync(Admin);
-        return product;
+        var products = await _productService.GetAllProductAsync(Admin);
+        return products;
     }
 
     // GET /api/products/{:id}

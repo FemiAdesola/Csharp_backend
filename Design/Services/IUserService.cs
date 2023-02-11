@@ -6,7 +6,8 @@ using Design.Models;
 
 public interface IUserService
 {
-    Task<User> CreateUserAsync(UserRequest request, User currentUser);
+    Task<User> SignUpAsync(UserRequest request, User currentUser);
+    Task<User> LoginAsync(string email, string password);
     Task<User> UpdateUserAsync(int id, UserRequest request, User currentUser);
     Task<bool> DeleteUserAsync(int id, User currentUser);
     Task<User> GetUserAsync(int id, User admin);

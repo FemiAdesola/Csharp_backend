@@ -27,8 +27,8 @@ public class CategoryController
     // GET /api/categories
     public async Task<IEnumerable<Category>> GetAllCategoryAsync()
     {
-        var category= await _categoryService.GetAllCategoryAsync(Admin);
-        return category;
+        var categories= await _categoryService.GetAllCategoryAsync(Admin);
+        return categories;
     }
 
     // GET /api/categories/{:id}
