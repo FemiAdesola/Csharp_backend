@@ -12,5 +12,5 @@ public interface ICategoryService
     Task<Category> GetCategoryAsync(int id, User admin);
     Task<IEnumerable<Category>> GetAllCategoryAsync(User admin);
 
-    Task<IEnumerable<Category>> GetTopSAlesAsync(int count, User admin);
+    Task<IEnumerable<Category>> GetProductByCategoryAsync(int id, User admin);
 }

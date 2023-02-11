@@ -43,15 +43,16 @@ public class ProductController
         throw new NotImplementedException();
     }
 
-    // Delete /api/products/{:id}
+    // DELETE /api/products/{:id}
     public async Task<Product> DeleteProductAsync(int id, User admin)
     {
         throw new NotImplementedException();
     }
 
-    // Delete /api/products/topproduct
+    // GET /api/products/topproduct
     public async Task<Product> GetTopDemandAsync(int count, User admin)
     {
         throw new NotImplementedException();
     }
+  
 }
