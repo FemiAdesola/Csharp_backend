@@ -17,6 +17,7 @@ public class ProductController
     public void GetProduct(int id)
     {
         var product = _productService.GetProduct(id);
+     
     }
     public void CreateProduct()
     {

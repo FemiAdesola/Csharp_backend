@@ -3,14 +3,15 @@ namespace Design.Models;
 
 public  class Category
 {
-    public int? CategoryID { get; set; }
+    public int? ID { get; set; }
     public string Name { get; set; }
-    public string Image{ get; set; }
-    public Category(int id, string name, string image)
+    public string[] Image{ get; set; }
+
+    public Category(int id, string name, string[] image)
     {
-        CategoryID = id;
+        ID = id;
         Name = name;
         Image = image;
     }
-    public override string ToString() => $"(id: {CategoryID}, name: {Name}, image: {Image})";
+    public override string ToString() => $"(id: {ID}, name: {Name}, image: {Image[0]})";
 }

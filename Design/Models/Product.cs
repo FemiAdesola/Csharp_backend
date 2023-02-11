@@ -1,20 +1,21 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 namespace Design.Models;
 
 public class Product
+
 {
     public int? ID { get; set; }
     public string Title { get; set; }
     public float Price { get; set; }
     public string Description { get; set; }
-    public string Image { get; set; }
+    public string[] Image { get; set; }
     public Category Category { get; set; }
-    public Review Review { get; set; }
-    // public bool IsAvailable { get; set; }
-
-    public Product(int id, string title, float price, string description, string image, Category category, Review review)
+    public Review? Review { get; set; }
+    
+    public Product(int id, string title, float price, string description, string[] image, Category category, Review review)
     {
         ID = id;
         Title = title;
@@ -25,28 +26,5 @@ public class Product
         Review = review;
     }
 
-    // public static List<Product> Products = new List<Product>();
-    public static List<Product> Products = new List<Product>
-    {
-        new Product(1, "Shoe", 30.00f, "Andy shoes are designed to keeping in...", "https://google.com.png", 
-        new Category(1, "Addidas", "https://google.com.png"),
-        new Review(3, "this product is look good", DateTime.Now.ToLocalTime())
-        )
-    };
-
-    public static Product CreateProduct(int id, string title, float price, string description, string image, Category category, Review review)
-    {
-        var product = new Product(id, title, price, description, image, category, review);
-        Products.Add(product);
-        return product;
-    }
-
-    public void UpdateProduct( string title, float price, string description)
-    {
-        Title = title;
-        Price = price;
-        Description = description;
-    }
-
-    public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, image: {Image}, Category: {Category}, review: {Review}";
+    public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, image: {Image}, Category: {Category.ID}, review: {Review?.Comment}";
 }
