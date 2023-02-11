@@ -7,7 +7,6 @@ using System.Linq;
 using Design.DTOs;
 
 public class Product
-
 {
     public int? ID { get; set; }
     public string? Title { get; set; }

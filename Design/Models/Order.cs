@@ -13,7 +13,7 @@ public class Order
     public bool IsDispached { get; set; }
     public ShippingAddress Address{get; set; }
 
-public Order(int id, User user , Cart[] cart, ShippingAddress address)
+    public Order(int id, User user , Cart[] cart, ShippingAddress address)
     {
         ID = id;
         CreatedAt = DateTime.Now;

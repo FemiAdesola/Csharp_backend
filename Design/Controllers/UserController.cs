@@ -42,20 +42,17 @@ public class UserController
     public async Task<User> UpdateUserAsync(int id, UserRequest request, User currentUser)
     {
         throw new NotImplementedException();
-       
     }
 
     //DELETE /api/Users/{:id}
     public async Task<User> DeleteUserAsync(int id, User currentUser)
     {
         throw new NotImplementedException();
-
     }
 
     //GET /api/auth/login
     public async Task<User> LoginAsync(string email, string password)
     {
         throw new NotImplementedException();
-
     }
 }

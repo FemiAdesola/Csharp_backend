@@ -9,7 +9,6 @@ public class Cart
     public double Price { get; set; }
     public float TotalPrice { get; set; }
    
-
     public Cart(int id, Product title, int quantity, double price, float totalPrice)
     {
         ID = id;

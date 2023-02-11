@@ -10,6 +10,7 @@ public class ProductController
 {
     private readonly IProductService _productService;
     public User Admin { get; }
+    
     static List<Product> _products = new List<Product>();
     static int _productId = 0;
 
