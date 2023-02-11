@@ -10,6 +10,8 @@ public class ProductController
 {
     private readonly IProductService _productService;
     public User Admin { get; }
+    static List<Product> _products = new List<Product>();
+    static int _productId = 0;
 
     //  dependency injection
     public ProductController(IProductService productService)
@@ -22,6 +24,10 @@ public class ProductController
     {
         var product = await _productService.CreateProductAsync(request, Admin);
         return product;
+        // var product = Product.GetProductRequest(request);
+        // product.ID = ++_productId;
+        // _products.Add(product);
+        // return product;
     }
 
     // GET /api/products
@@ -32,15 +38,20 @@ public class ProductController
     }
 
     // GET /api/products/{:id}
-    public async Task<Product> GetProductAsync(int id)
+    public async Task<Product> GetProductAsync(int id, User admin)
     {
-        return await _productService.GetProductAsync(id, Admin);
+        return await _productService.GetProductAsync(id, admin);
     }
 
     // PUT /api/products/{:id}
-    public async Task<Product> UpdateProductAsync(int id, ProductRequest request)
+    public async Task<Product> UpdateProductAsync(int id, ProductRequest request, User admin)
     {
-        throw new NotImplementedException();
+        var produt = await GetProductAsync(id, admin);
+        if (produt.User?.ID != admin.ID)
+        {
+            throw new ArgumentException("Someone is trying to update this product");
+        }
+        return produt;
     }
 
     // DELETE /api/products/{:id}
