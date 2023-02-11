@@ -1,10 +1,8 @@
-namespace Design.Services;
-
 using System;
 using Design.DTOs;
 using Design.Models;
 
-public interface IOrderService
+public interface IOrderRepository
 {
     Task<Order> GetOrderAsync(int id, User admin);
     Task<Order> UpdateOrderAsync(int id, OrderRequest request, User admin);

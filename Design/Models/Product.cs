@@ -1,8 +1,9 @@
+namespace Design.Models;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-namespace Design.Models;
 
 public class Product
 

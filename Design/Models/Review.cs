@@ -1,4 +1,3 @@
-using System;
 namespace Design.Models;
 
 public class Review

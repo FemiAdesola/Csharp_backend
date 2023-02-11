@@ -1,7 +1,6 @@
-namespace Design.DTO;
+namespace Design.DTOs;
 
-using Models;
-
+using Design.Models;
 
 public class OrderRequest
 {

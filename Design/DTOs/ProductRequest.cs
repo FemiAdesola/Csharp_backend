@@ -1,7 +1,7 @@
-namespace Design.DTO;
+namespace Design.DTOs;
 
 using System.ComponentModel.DataAnnotations;
-using Models;
+using Design.Models;
 
 public class ProductRequest
 {

@@ -1,44 +1,57 @@
+namespace Controllers;
+
 using System;
-using Design.DTO;
+using Design.DTOs;
 using Design.Models;
+using Design.Services;
+using System.ComponentModel.DataAnnotations;
+
 public class ProductController
 {
     private readonly IProductService _productService;
+    public User Admin { get; }
 
     //  dependency injection
     public ProductController(IProductService productService)
     {
         _productService = productService;
     }
-    public void GetAllProducts()
-    {
 
-    }
-    public void GetProduct(int id)
+    // POST /api/products
+    public async Task<Product> CreateProductAsync(ProductRequest request)
     {
-        var product = _productService.GetProduct(id);
-     
+        var product = await _productService.CreateProductAsync(request, Admin);
+        return product;
     }
-    public void CreateProduct()
-    {
 
-    }
-    public void UpdateProduct(int id, ProductRequest dto)
+    // GET /api/products
+    public async Task<Product> GetAllProductAsync()
     {
-        _productService.UpdateProduct(id, dto);
+        var product = await _productService.GetAllProductAsync(Admin);
+        return (Product)product;
     }
-    public void DeleteProduct(int id)
+
+    // GET /api/products/{:id}
+    public async Task<Product> GetProductAsync(int id)
     {
-        _productService.DeleteProduct(id);
-        // if (id == null || id == 0)
-        // {
-        //     return "Not found";
-        // }
-        // var obj = _productService.Find(id);
-        // if (obj == null)
-        // {
-        //     return " Not found";
-        // }
-        // return ((string)obj);
+        return await _productService.GetProductAsync(id, Admin);
+    }
+
+    // PUT /api/products/{:id}
+    public async Task<Product> UpdateProductAsync(int id, ProductRequest request)
+    {
+        throw new NotImplementedException();
+    }
+
+    // Delete /api/products/{:id}
+    public async Task<Product> DeleteProductAsync(int id, User admin)
+    {
+        throw new NotImplementedException();
+    }
+
+    // Delete /api/products/topproduct
+    public async Task<Product> GetTopDemandAsync(int count, User admin)
+    {
+        throw new NotImplementedException();
     }
 }
