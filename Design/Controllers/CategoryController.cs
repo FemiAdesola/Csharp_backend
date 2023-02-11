@@ -1,4 +1,3 @@
-
 namespace Controllers;
 
 using System;
@@ -21,15 +20,15 @@ public class CategoryController
     // POST /api/categories
     public async Task<Category> CreateCategoryAsync(CategoryRequest request)
     {
-        var product = await _categoryService.CreateCategoryAsync(request, Admin);
-        return product;
+        var category = await _categoryService.CreateCategoryAsync(request, Admin);
+        return category;
     }
 
     // GET /api/categories
-    public async Task<Category> GetAllCategoryAsync()
+    public async Task<IEnumerable<Category>> GetAllCategoryAsync()
     {
-        var product = await _categoryService.GetAllCategoryAsync(Admin);
-        return (Category)product;
+        var category= await _categoryService.GetAllCategoryAsync(Admin);
+        return category;
     }
 
     // GET /api/categories/{:id}
@@ -51,7 +50,7 @@ public class CategoryController
     }
 
     // GET /api/categories/{:id}/products
-    public async Task<Category> GetProductByCategoryAsync(int id, User admin)
+    public async Task<IEnumerable<Category>> GetProductByCategoryAsync(int id, User admin)
     {
         throw new NotImplementedException();
     }

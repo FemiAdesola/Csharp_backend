@@ -25,10 +25,10 @@ public class ProductController
     }
 
     // GET /api/products
-    public async Task<Product> GetAllProductAsync()
+    public async Task<IEnumerable<Product>> GetAllProductAsync()
     {
         var product = await _productService.GetAllProductAsync(Admin);
-        return (Product)product;
+        return product;
     }
 
     // GET /api/products/{:id}
@@ -50,9 +50,8 @@ public class ProductController
     }
 
     // GET /api/products/topproduct
-    public async Task<Product> GetTopDemandAsync(int count, User admin)
+    public async Task<IEnumerable<Product>> GetTopDemandAsync(int count, User admin)
     {
         throw new NotImplementedException();
     }
-  
 }
