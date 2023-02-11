@@ -16,7 +16,6 @@ public class Cart
         Quantity = quantity;
         Price = price;
         TotalPrice = totalPrice;
-      
     }
     public override string ToString() => $"(productTitle: {Title?.Title}, Quantity: {Quantity}, Totalprice: {TotalPrice})";
 }

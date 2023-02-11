@@ -23,7 +23,6 @@ public class User
         Email = email;
         Password = password;
         Status = UserRole.LoginUser;
-
     }
 
     public override string ToString() => $"ID: {ID}, firstName: {FirstName}, lastName: {LastName}, email: {Email}, password: {Password}, status: {Status}";
