@@ -4,18 +4,20 @@ namespace Design.Models;
 public class Cart
 {
     public int ID { get; set; } 
-    public Product? Title { get; set; }
+    public Product[] Product { get; set; }
+    public User User { get; set; }
     public int Quantity {get; set; }
     public double Price { get; set; }
     public float TotalPrice { get; set; }
    
-    public Cart(int id, Product title, int quantity, double price, float totalPrice)
+    public Cart(int id, Product[] product, int quantity, double price, float totalPrice, User user)
     {
         ID = id;
-        Title = title;
+        Product = product;
         Quantity = quantity;
         Price = price;
         TotalPrice = totalPrice;
+        User = user;
     }
-    public override string ToString() => $"(productTitle: {Title?.Title}, Quantity: {Quantity}, Totalprice: {TotalPrice})";
+    public override string ToString() => $"(productTitle: {Product}, Quantity: {Quantity}, Totalprice: {TotalPrice}, userId: {User.ID})";
 }

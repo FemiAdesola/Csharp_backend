@@ -5,6 +5,7 @@ using Design.DTOs;
 using Design.Models;
 using Design.Services;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Http;
 
 public class ProductController
 {
@@ -21,6 +22,7 @@ public class ProductController
     }
 
     // POST /api/products
+    // [HttpPost("")]
     public async Task<Product> CreateProductAsync(ProductRequest request)
     {
         var product = await _productService.CreateProductAsync(request, Admin);
@@ -48,7 +50,7 @@ public class ProductController
     public async Task<Product> UpdateProductAsync(int id, ProductRequest request, User admin)
     {
         var produt = await GetProductAsync(id, admin);
-        if (produt.User?.ID != admin.ID)
+        if (produt.ID != id)
         {
             throw new ArgumentException("Someone is trying to update this product");
         }

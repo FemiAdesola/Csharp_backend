@@ -15,7 +15,7 @@ public class Product
     public string[]? Image { get; set; }
     public Category? Category { get; set; }
     public Review? Review { get; set; }
-    public User? User { get; set; }
+    // public User? User { get; set; }
 
     public Product ()
     {
@@ -31,7 +31,7 @@ public class Product
         Image = image;
         Category = category;
         Review = review;
-        User = user;
+        // User = user;
     }
 
     public static Product GetProductRequest(ProductRequest request)

@@ -1,7 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using Design.Models;
-using static System.Console;
+﻿
+// var builder = WebApplication.CreateBuilder(args);
 
-WriteLine("############# New Product ################");
-// Product.CreateProduct(2, "Shoe", 35.00f, "Andy shoes are designed to keeping in...", "https://google.com.png", new Category(1, "Addidas", "https://google.com.png"));
+// // Add services to the container.
+
+// builder.Services.AddControllers();
+// // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSwaggerGen();
+
+// var app = builder.Build();
+
+// // Configure the HTTP request pipeline.
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
+
+// app.UseHttpsRedirection();
+
+// app.UseAuthorization();
+
+// app.MapControllers();
+
+// app.Run();
