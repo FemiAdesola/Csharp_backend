@@ -17,39 +17,39 @@ public class CategoryController
         _categoryService = categoryService;
     }
 
-    // POST /api/categories
+    // POST /api/v1/categories
     public async Task<Category> CreateCategoryAsync(CategoryRequest request)
     {
         var category = await _categoryService.CreateCategoryAsync(request, Admin);
         return category;
     }
 
-    // GET /api/categories
+    // GET /api/v1/categories
     public async Task<IEnumerable<Category>> GetAllCategoryAsync()
     {
         var categories= await _categoryService.GetAllCategoryAsync(Admin);
         return categories;
     }
 
-    // GET /api/categories/{:id}
+    // GET /api/v1/categories/{:id}
     public async Task<Category> GetCategoryAsync(int id)
     {
         return await _categoryService.GetCategoryAsync(id, Admin);
     }
 
-    // PUT /api/categories/{:id}
+    // PUT /api/v1/categories/{:id}
     public async Task<Category> UpdateCategoryAsync(int id, CategoryRequest request)
     {
         throw new NotImplementedException();
     }
 
-    // DELETE /api/categories/{:id}
+    // DELETE /api/v1/categories/{:id}
     public async Task<Category> DeleteCategoryAsync(int id, User admin)
     {
         throw new NotImplementedException();
     }
 
-    // GET /api/categories/{:id}/products
+    // GET /api/v1/categories/{:id}/products
     public async Task<IEnumerable<Category>> GetProductByCategoryAsync(int id, User admin)
     {
         throw new NotImplementedException();

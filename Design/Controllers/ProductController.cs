@@ -38,13 +38,13 @@ public class ProductController
         return products;
     }
 
-    // GET /api/products/{:id}
+    // GET /api/v1/products/{:id}
     public async Task<Product> GetProductAsync(int id, User admin)
     {
         return await _productService.GetProductAsync(id, admin);
     }
 
-    // PUT /api/products/{:id}
+    // PUT /api/v1/products/{:id}
     public async Task<Product> UpdateProductAsync(int id, ProductRequest request, User admin)
     {
         var produt = await GetProductAsync(id, admin);
@@ -55,13 +55,13 @@ public class ProductController
         return produt;
     }
 
-    // DELETE /api/products/{:id}
+    // DELETE /api/v1/products/{:id}
     public async Task<Product> DeleteProductAsync(int id, User admin)
     {
         throw new NotImplementedException();
     }
 
-    // GET /api/products/topproduct
+    // GET /api/v1/products/topproduct
     public async Task<IEnumerable<Product>> GetTopDemandAsync(int count, User admin)
     {
         throw new NotImplementedException();

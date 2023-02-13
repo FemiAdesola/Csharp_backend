@@ -17,27 +17,27 @@ public class OrderController
         _orderService = orderService;
     }
 
-    // GET /api/orders
+    // GET /api/v1/orders
     public async Task<IEnumerable<Order>> GetAllOrderAsync()
     {
         var orders = await _orderService.GetAllOrderAsync(Admin);
         return orders;
     }
 
-    // GET /api/orders/{:id}
+    // GET /api/v1/orders/{:id}
     public async Task<Order> GetOrderAsync(int id)
     {
         var order = await _orderService.GetOrderAsync(id, Admin);
         return order;
     }
 
-    // PUT /api/orders/{:id}
+    // PUT /api/v1/orders/{:id}
     public async Task<Order> UpdateOrderAsync(int id, OrderRequest request, User admin)
     {
         throw new NotImplementedException();
     }
 
-    // DELETE /api/orders/{:id}
+    // DELETE /api/v1/orders/{:id}
     public async Task<Order> DeleteOrderAsync(int id, User admin)
     {
         throw new NotImplementedException();
