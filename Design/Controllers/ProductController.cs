@@ -1,4 +1,4 @@
-namespace Controllers;
+namespace Design.Controllers;
 
 using System;
 using Design.DTOs;

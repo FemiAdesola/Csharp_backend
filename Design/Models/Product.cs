@@ -12,26 +12,25 @@ public class Product
     public string? Title { get; set; }
     public float Price { get; set; }
     public string? Description { get; set; }
-    public string[]? Image { get; set; }
+    public ImageFile[]? Images { get; set; } = new ImageFile[3];
     public Category? Category { get; set; }
     public Review? Review { get; set; }
-    // public User? User { get; set; }
+    public User? User { get; set; }
 
     public Product ()
     {
         
     }
     
-    public Product(int id, string title, float price, string description, string[] image, Category category, Review review, User user)
+    public Product(int id, string title, float price, string description, ImageFile[] images, Category category, Review review, User user)
     {
         ID = id;
         Title = title;
         Price = price;
         Description = description;
-        Image = image;
         Category = category;
         Review = review;
-        // User = user;
+        User = user;
     }
 
     public static Product GetProductRequest(ProductRequest request)
@@ -41,7 +40,7 @@ public class Product
             Title = request.Title,
             Description = request.Description,
             Price = request.Price,
-            Image = request.Image,
+            Images = request.Images,
             Category = request.Category,
         };
         if (request.Review is not null)
@@ -51,5 +50,5 @@ public class Product
         return product;
     }
 
-    public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, image: {Image}, Category: {Category.ID}, review: {Review?.Comment}";
+    public override string ToString() => $"produtId: {ID}, title: {Title}, price: {Price}€, description: {Description}, images: {Images?[3]}, Category: {Category?.ID}, review: {Review?.Comment}";
 }
