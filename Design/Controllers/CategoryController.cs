@@ -1,12 +1,15 @@
 namespace Design.Controllers;
 
+using Microsoft.AspNetCore.Mvc;
 using System;
 using Design.DTOs;
 using Design.Models;
 using Design.Services;
 using System.ComponentModel.DataAnnotations;
 
-public class CategoryController
+[ApiController]
+[Route("[controller]s")]
+public class CategoryController : ControllerBase
 {
     private readonly ICategoryService _categoryService;
     public User Admin { get; }
@@ -18,6 +21,7 @@ public class CategoryController
     }
 
     // POST /api/v1/categories
+    
     public async Task<Category> CreateCategoryAsync(CategoryRequest request)
     {
         var category = await _categoryService.CreateCategoryAsync(request, Admin);
@@ -25,6 +29,7 @@ public class CategoryController
     }
 
     // GET /api/v1/categories
+    [HttpGet("")]
     public async Task<IEnumerable<Category>> GetAllCategoryAsync()
     {
         var categories= await _categoryService.GetAllCategoryAsync(Admin);
