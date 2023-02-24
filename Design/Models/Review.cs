@@ -2,21 +2,23 @@ namespace Design.Models;
 
 public class Review
 {
-    public Product ProductID{ get; set; }
+    public int ID { get; set; }
+    public Product ProductId{ get; set; }
     public int Rating { get; set; }
     public string Comment { get; set; }
     public DateTime CreatedAt { get; set; }
-    public User User { get; set; }
+    public User UserId { get; set; }
 
-    public Review(int rating, string comment, DateTime createdAt, Product productId, User user)
+    public Review(int id, int rating, string comment, DateTime createdAt, Product productId, User userId)
     {
-        ProductID= productId;
+        ID = id;
+        ProductId= productId;
         Rating = rating;;
         Comment = comment;
         CreatedAt = createdAt;
-        User = user;
+        UserId = userId;
     }
     
     public override string ToString() => 
-        $"(Rating: {Rating}, Comment: {Comment}, date: {CreatedAt}, productId: {ProductID.ID} Customer: {User.FirstName})";
+        $"(id: {ID}, Rating: {Rating}, Comment: {Comment}, date: {CreatedAt}, productId: {ProductId.ID} Customer: {UserId.ID})";
 }

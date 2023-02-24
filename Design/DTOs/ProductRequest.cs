@@ -6,7 +6,7 @@ using Design.Models;
 public class ProductRequest
 {
     [Required]
-    public string Title { get; set; }
+    public string? Title { get; set; }
     public float Price { get; set; }
     public string? Description { get; set; }
     public ImageFile[]? Images { get; set; } = new ImageFile[3];

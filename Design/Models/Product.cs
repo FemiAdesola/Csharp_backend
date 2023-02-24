@@ -15,14 +15,13 @@ public class Product
     public ImageFile[]? Images { get; set; } = new ImageFile[3];
     public Category? Category { get; set; }
     public Review? Review { get; set; }
-    public User? User { get; set; }
 
     public Product ()
     {
         
     }
     
-    public Product(int id, string title, float price, string description, ImageFile[] images, Category category, Review review, User user)
+    public Product(int id, string title, float price, string description, ImageFile[] images, Category category, Review review)
     {
         ID = id;
         Title = title;
@@ -30,7 +29,6 @@ public class Product
         Description = description;
         Category = category;
         Review = review;
-        User = user;
     }
 
     public static Product GetProductRequest(ProductRequest request)
