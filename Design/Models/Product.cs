@@ -6,9 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Design.DTOs;
 
-public class Product
+public class Product : BaseModel
 {
-    public int? ID { get; set; }
     public string? Title { get; set; }
     public float Price { get; set; }
     public string? Description { get; set; }

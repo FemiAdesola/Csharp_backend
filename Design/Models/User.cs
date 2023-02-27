@@ -1,8 +1,7 @@
 namespace Design.Models;
 
-public class User
+public class User : BaseModel
 {
-    public int ID { get; set; }
     public string? FirstName { get; init; }
     public string? LastName { get; init; }
     public string? Email { get; set; }

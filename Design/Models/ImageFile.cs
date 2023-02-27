@@ -1,8 +1,7 @@
 namespace Design.Models;
 
-public class ImageFile
+public class ImageFile : BaseModel
 {
-    public int ID { get; set; }
     public string Image { get; set; }
 
 

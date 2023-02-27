@@ -1,9 +1,8 @@
 using System;
 namespace Design.Models;
 
-public class Cart
+public class Cart : BaseModel
 {
-    public int ID { get; set; } 
     public Product ProductId { get; set; }
     public User UserId { get; set; }
     public int Quantity {get; set; }
