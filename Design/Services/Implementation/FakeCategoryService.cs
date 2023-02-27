@@ -10,6 +10,7 @@ public class FakeCategorySerivce : ICategoryService
 {
     private ConcurrentDictionary<int, Category> _categories = new();
     private int _categoryId;
+    
     public async Task<Category> CreateCategoryAsync(CategoryRequest request)
     {
         var category =  new Category
@@ -50,7 +51,6 @@ public class FakeCategorySerivce : ICategoryService
 
     public async Task<Category?> UpdateCategoryAsync(int id, CategoryRequest request)
     {
-        // throw new NotSupportedException();
         var category = await GetCategoryAsync(id);
         if (category is null)
         {
@@ -62,10 +62,8 @@ public class FakeCategorySerivce : ICategoryService
         return category;
     }
 
-
     public async Task<IEnumerable<Category>>GetProductByCategoryAsync(int id, User admin)
     {
         throw new NotSupportedException();
     }
-
 }
