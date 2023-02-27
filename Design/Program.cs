@@ -16,7 +16,8 @@ builder.Services
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<ICategoryService, FakeCategorySerivce>();
+// builder.Services.AddSingleton<ICategoryService, FakeCategorySerivce>();
+builder.Services.AddSingleton<ICrudService<Category, CategoryRequest>, FakeCrudSerivce<Category, CategoryRequest>>();
 
 var app = builder.Build();
 

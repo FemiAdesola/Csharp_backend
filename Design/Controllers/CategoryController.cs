@@ -5,24 +5,28 @@ using System;
 using Design.DTOs;
 using Design.Models;
 using Design.Services;
+using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
 public class CategoryController : ApiControllerBase
 {
-    private readonly ICategoryService _categoryService;
+    private readonly ILogger<CategoryController> _logger;
+    private readonly ICrudService<Category, CategoryRequest> _service;
+
     public User? Admin { get; }
 
     //  dependency injection
-    public  CategoryController(ICategoryService categoryService)
+    public  CategoryController(ILogger<CategoryController> logger, ICrudService<Category, CategoryRequest> service)
     {
-        _categoryService = categoryService;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _service = service;
     }
 
     // POST /api/v1/categories
     [HttpPost]
     public async Task<IActionResult> CreateCategoryAsync(CategoryRequest request)
     {
-        var category = await _categoryService.CreateCategoryAsync(request);
+        var category = await _service.CreateAsync(request);
         if (category is null)
         {
             return BadRequest("Something is wrong with the payload");
@@ -36,7 +40,7 @@ public class CategoryController : ApiControllerBase
     {
         try
         {
-            var categories = await _categoryService.GetAllCategoryAsync();
+            var categories = await _service.GetAllAsync();
             return Ok(categories);
 
         }
@@ -45,9 +49,6 @@ public class CategoryController : ApiControllerBase
             return StatusCode(StatusCodes.Status500InternalServerError,
                 "Error retrieving data from the .....");
         }
-
-        // var categories = await _categoryService.GetAllCategoryAsync();
-        // return categories;
     }
 
     // GET /api/v1/categories/{:id}
@@ -57,7 +58,7 @@ public class CategoryController : ApiControllerBase
         
         try
         {
-            var result = await _categoryService.GetCategoryAsync(id);
+            var result = await _service.GetAsync(id);
             if (result == null)
             {
                 return NotFound("Category is not found");
@@ -80,7 +81,7 @@ public class CategoryController : ApiControllerBase
     {
         try
         {
-            var category = await _categoryService.UpdateCategoryAsync(id, request);
+            var category = await _service.UpdateAsync(id, request);
             if (category is null)
             {
                 return NotFound("Category is not found");
@@ -100,7 +101,7 @@ public class CategoryController : ApiControllerBase
     {
         try 
         {
-            var deleteCategory = await _categoryService.DeleteCategoryAsync(id);
+            var deleteCategory = await _service.DeleteAsync(id);
             if (!deleteCategory)
             {
                 return NotFound($"Category with Id = {id} not found");
