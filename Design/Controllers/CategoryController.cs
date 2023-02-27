@@ -7,51 +7,111 @@ using Design.Models;
 using Design.Services;
 using System.ComponentModel.DataAnnotations;
 
-[ApiController]
-[Route("[controller]s")]
-public class CategoryController : ControllerBase
+public class CategoryController : ApiControllerBase
 {
     private readonly ICategoryService _categoryService;
-    public User Admin { get; }
+    public User? Admin { get; }
 
     //  dependency injection
-    public CategoryController(ICategoryService categoryService)
+    public  CategoryController(ICategoryService categoryService)
     {
         _categoryService = categoryService;
     }
 
     // POST /api/v1/categories
-    
-    public async Task<Category> CreateCategoryAsync(CategoryRequest request)
+    [HttpPost]
+    public async Task<IActionResult> CreateCategoryAsync(CategoryRequest request)
     {
-        var category = await _categoryService.CreateCategoryAsync(request, Admin);
-        return category;
+        var category = await _categoryService.CreateCategoryAsync(request);
+        if (category is null)
+        {
+            return BadRequest("Something is wrong with the payload");
+        }
+        return Ok(category);
     }
 
     // GET /api/v1/categories
     [HttpGet("")]
-    public async Task<IEnumerable<Category>> GetAllCategoryAsync()
+    public async Task<ActionResult<IEnumerable<Category>>> GetAllCategoryAsync()
     {
-        var categories= await _categoryService.GetAllCategoryAsync(Admin);
-        return categories;
+        try
+        {
+            var categories = await _categoryService.GetAllCategoryAsync();
+            return Ok(categories);
+
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error retrieving data from the .....");
+        }
+
+        // var categories = await _categoryService.GetAllCategoryAsync();
+        // return categories;
     }
 
     // GET /api/v1/categories/{:id}
-    public async Task<Category> GetCategoryAsync(int id)
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<Category>> GetCategoryAsync(int id)
     {
-        return await _categoryService.GetCategoryAsync(id, Admin);
+        
+        try
+        {
+            var result = await _categoryService.GetCategoryAsync(id);
+            if (result == null)
+            {
+                return NotFound("Category is not found");
+            }
+
+            return result;
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error retrieving data from the ....");
+        }
+        
+
     }
 
     // PUT /api/v1/categories/{:id}
-    public async Task<Category> UpdateCategoryAsync(int id, CategoryRequest request)
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<Category>> UpdateCategoryAsync(int id, CategoryRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var category = await _categoryService.UpdateCategoryAsync(id, request);
+            if (category is null)
+            {
+                return NotFound("Category is not found");
+            }
+            return Ok(category);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error updating data");
+        }
     }
 
     // DELETE /api/v1/categories/{:id}
-    public async Task<Category> DeleteCategoryAsync(int id, User admin)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteCategoryAsync(int id)
     {
-        throw new NotImplementedException();
+        try 
+        {
+            var deleteCategory = await _categoryService.DeleteCategoryAsync(id);
+            if (!deleteCategory)
+            {
+                return NotFound($"Category with Id = {id} not found");
+            }
+            return Ok(new { Message = ($"Category with Id = {id} is deleted ")});
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error deleting data");
+        }
     }
 
     // GET /api/v1/categories/{:id}/products

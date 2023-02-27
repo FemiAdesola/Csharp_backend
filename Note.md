@@ -87,3 +87,6 @@
 + Delete...
 
 ![Diagram](/img/Diagram.png)
+
+
+curl -k -X POST http://localhost:5195/categories -H "content-type: application/json" -d '{"Name": "Adesola", "Image": "Femi"}' | jq
